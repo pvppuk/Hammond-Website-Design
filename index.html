@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Request a Siding Project Quote | SidingPro</title>
+<meta name="description" content="Get a free siding quote from trusted SidingPro contractors near you. Bring your dream home to life with SidingPro.">
+<style>
+  :root{
+    --green:#00833E;
+    --blue:#004d80;
+    --ink:#333333;
+    --gray:#8c8c8c;
+    --near-black:#272e31;
+    --light:#f5f7f6;
+    --white:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    line-height:1.6;
+    background:var(--white);
+  }
+  a{color:var(--green);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  img{max-width:100%;display:block;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:var(--white);
+    border-bottom:1px solid #e6e9e7;
+  }
+  .nav{
+    max-width:1200px;margin:0 auto;padding:16px 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+  }
+  .logo{
+    font-size:24px;font-weight:800;color:var(--near-black);letter-spacing:-.5px;
+  }
+  .logo span{color:var(--green);}
+  .nav-links{display:flex;gap:28px;font-size:15px;font-weight:600;color:var(--ink);}
+  .nav-links a{color:var(--ink);}
+  .nav-links a:hover{color:var(--green);text-decoration:none;}
+  .nav-actions{display:flex;gap:12px;align-items:center;}
+  .btn{
+    display:inline-block;padding:11px 22px;border-radius:6px;
+    font-weight:700;font-size:15px;cursor:pointer;border:2px solid transparent;
+    transition:background .2s,color .2s;
+  }
+  .btn-primary{background:var(--green);color:var(--white);}
+  .btn-primary:hover{background:#006b32;text-decoration:none;}
+  .btn-outline{border-color:var(--green);color:var(--green);background:transparent;}
+  .btn-outline:hover{background:var(--green);color:var(--white);text-decoration:none;}
+  .btn-dark{background:var(--near-black);color:var(--white);}
+  .btn-dark:hover{background:#000;text-decoration:none;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:linear-gradient(180deg,#f5f7f6,#ffffff);
+    border-bottom:1px solid #e6e9e7;
+  }
+  .hero-inner{
+    max-width:1200px;margin:0 auto;padding:56px 24px;
+    display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
+  }
+  .hero h1{
+    font-size:44px;line-height:1.15;font-weight:800;color:var(--near-black);
+    letter-spacing:-1px;margin-bottom:18px;
+  }
+  .hero h1 em{font-style:normal;color:var(--green);}
+  .hero p.lead{font-size:17px;color:#4a4f4d;max-width:540px;margin-bottom:28px;}
+  .mandatory{font-size:13px;color:var(--gray);margin-bottom:18px;}
+
+  .form-card{
+    background:var(--white);border:1px solid #e6e9e7;border-radius:12px;
+    padding:28px;box-shadow:0 10px 30px rgba(0,0,0,.06);
+  }
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .field{display:flex;flex-direction:column;gap:6px;}
+  .field.full{grid-column:1 / -1;}
+  label{font-size:13px;font-weight:700;color:var(--near-black);}
+  label .req{color:var(--green);}
+  input,select,textarea{
+    width:100%;padding:11px 13px;border:1px solid #d5dad8;border-radius:6px;
+    font-size:15px;color:var(--ink);background:var(--white);
+  }
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--green);outline-offset:-1px;border-color:var(--green);}
+  .checkbox-row{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#4a4f4d;}
+  .checkbox-row input{width:auto;margin-top:2px;}
+  .terms{font-size:12px;color:var(--gray);margin-top:14px;}
+  .submit{width:100%;margin-top:18px;}
+
+  /* ---------- Sections ---------- */
+  .section{padding:72px 24px;}
+  .section-inner{max-width:1200px;margin:0 auto;}
+  .section h2{
+    font-size:34px;font-weight:800;color:var(--near-black);
+    letter-spacing:-.5px;margin-bottom:12px;text-align:center;
+  }
+  .section .sub{text-align:center;color:#4a4f4d;max-width:680px;margin:0 auto 40px;font-size:16px;}
+
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .feature{
+    background:var(--light);border:1px solid #e6e9e7;border-radius:12px;padding:28px;
+  }
+  .feature .icon{
+    width:46px;height:46px;border-radius:50%;background:var(--green);
+    color:var(--white);display:flex;align-items:center;justify-content:center;
+    font-size:20px;font-weight:800;margin-bottom:16px;
+  }
+  .feature h3{font-size:20px;font-weight:800;color:var(--near-black);margin-bottom:8px;}
+  .feature p{font-size:15px;color:#4a4f4d;}
+
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  .card{
+    border:1px solid #e6e9e7;border-radius:12px;overflow:hidden;background:var(--white);
+    transition:transform .2s,box-shadow .2s;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.08);}
+  .card img{width:100%;height:180px;object-fit:cover;}
+  .card-body{padding:20px;}
+  .card h3{font-size:18px;font-weight:800;color:var(--near-black);margin-bottom:8px;}
+  .card p{font-size:14px;color:#4a4f4d;margin-bottom:14px;}
+  .card .link{font-weight:700;font-size:14px;}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--near-black);color:#cfd4d2;padding:56px 24px 28px;}
+  .footer-inner{max-width:1200px;margin:0 auto;}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px;}
+  .footer-grid h4{color:var(--white);font-size:15px;margin-bottom:14px;}
+  .footer-grid a{display:block;color:#cfd4d2;font-size:14px;margin-bottom:8px;}
+  .footer-grid a:hover{color:var(--white);}
+  .footer-brand .logo{color:var(--white);margin-bottom:12px;}
+  .footer-brand p{font-size:14px;color:#a9b0ad;max-width:320px;}
+  .footer-bottom{
+    border-top:1px solid #3a403d;padding-top:22px;
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    font-size:13px;color:#a9b0ad;
+  }
+  .footer-bottom a{color:#a9b0ad;}
+  .footer-bottom a:hover{color:var(--white);}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:960px){
+    .hero-inner{grid-template-columns:1fr;padding:40px 20px;}
+    .cards{grid-template-columns:repeat(2,1fr);}
+    .features{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .nav-links{display:none;}
+    .hero h1{font-size:34px;}
+  }
+  @media (max-width:560px){
+    .cards{grid-template-columns:1fr;}
+    .form-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="nav">
+    <div class="logo">Siding<span>Pro</span></div>
+    <nav class="nav-links">
+      <a href="#quote">Request a Quote</a>
+      <a href="#why">Why SidingPro</a>
+      <a href="#resources">Resources</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-outline" href="#quote">Get a Quote</a>
+      <a class="btn btn-primary" href="#contractors">Find a Contractor</a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="quote">
+  <div class="hero-inner">
+    <div>
+      <h1>Request a <em>quote</em> from skilled siding contractors</h1>
+      <p class="lead">The SidingPro network connects homeowners with trusted, vetted contractors who are experts in premium siding installation. Fill out the form and we'll connect you with up to three members ready to review your project and provide pricing and timing.</p>
+      <p class="mandatory">* Mandatory fields</p>
+
+      <form class="form-card" onsubmit="event.preventDefault(); alert('Thanks! A SidingPro contractor will reach out shortly.');">
+        <div class="form-grid">
+          <div class="field">
+            <label for="first">First name<span class="req">*</span></label>
+            <input id="first" type="text" required>
+          </div>
+          <div class="field">
+            <label for="last">Last name<span class="req">*</span></label>
+            <input id="last" type="text" required>
+          </div>
+          <div class="field">
+            <label for="email">Email address<span class="req">*</span></label>
+            <input id="email" type="email" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone<span class="req">*</span></label>
+            <input id="phone" type="tel" required>
+          </div>
+          <div class="field">
+            <label for="address">Address<span class="req">*</span></label>
+            <input id="address" type="text" required>
+          </div>
+          <div class="field">
+            <label for="city">City<span class="req">*</span></label>
+            <input id="city" type="text" required>
+          </div>
+          <div class="field">
+            <label for="state">State</label>
+            <select id="state">
+              <option>Select one option</option>
+              <option>Alabama</option><option>Alaska</option><option>Arizona</option>
+              <option>California</option><option>Colorado</option><option>Florida</option>
+              <option>Georgia</option><option>Illinois</option><option>Texas</option>
+              <option>Washington</option><option>New York</option><option>Ohio</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="zip">ZIP code<span class="req">*</span></label>
+            <input id="zip" type="text" required>
+          </div>
+          <div class="field full">
+            <label for="lang">Preferred language</label>
+            <select id="lang">
+              <option>English</option>
+              <option>Français (Canada)</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label class="checkbox-row">
+              <input type="checkbox" required>
+              <span>I agree to the terms and conditions and consent to being contacted by SidingPro contractors in my area.</span>
+            </label>
+          </div>
+        </div>
+        <button class="btn btn-primary submit" type="submit">Submit Request</button>
+        <p class="terms">By submitting this form, you authorize SidingPro to share your information with local siding contractors and consent to receiving calls and texts about products and services. This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.</p>
+      </form>
+    </div>
+
+    <div>
+      <img src="images/hero.jpg" alt="Siding professional discussing a project with a homeowner" style="border-radius:12px;box-shadow:0 20px 50px rgba(0,0,0,.15);">
+    </div>
+  </div>
+</section>
+
+<!-- Why choose -->
+<section class="section" id="why">
+  <div class="section-inner">
+    <h2>Why choose a contractor from our network?</h2>
+    <p class="sub">Every SidingPro contractor is carefully screened so you can trust the work on your home.</p>
+    <div class="features">
+      <div class="feature">
+        <div class="icon">✓</div>
+        <h3>Trained and vetted</h3>
+        <p>Members must successfully complete required installation trainings, provide valid insurance credentials, and participate in monitoring of their reviews.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">✓</div>
+        <h3>Proven experience</h3>
+        <p>Members must annually submit invoices that prove they have sufficient experience with premium siding products to maintain their tier.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">✓</div>
+        <h3>Ready to start</h3>
+        <p>Network members are ready to assist with your project and will reach out to you directly to begin planning.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Not ready -->
+<section class="section" id="resources" style="background:var(--light);">
+  <div class="section-inner">
+    <h2>Not ready to request a quote?</h2>
+    <p class="sub">Explore our project planning tools and resources to create the resilient, beautiful home you've been waiting for.</p>
+    <div class="cards">
+      <div class="card">
+        <img src="images/catalog.jpg" alt="Siding product catalog">
+        <div class="card-body">
+          <h3>Download our Product Catalog</h3>
+          <p>Browse the full range of premium siding styles and colors.</p>
+          <a class="link" href="#">Download catalog →</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/replace-1.jpg" alt="Modern home exterior">
+        <div class="card-body">
+          <h3>Order free color samples</h3>
+          <p>See the colors in person and find the perfect look for your home.</p>
+          <a class="link" href="#">Order free samples →</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/designer.jpg" alt="Home design visualization tool">
+        <div class="card-body">
+          <h3>Visualize your home with the Designer</h3>
+          <p>Preview siding styles and colors on a photo of your own home.</p>
+          <a class="link" href="#">Try the Designer →</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/replace-2.jpg" alt="Beautiful house with premium siding">
+        <div class="card-body">
+          <h3>Browse contractors in your area</h3>
+          <p>Find a trusted SidingPro contractor near you.</p>
+          <a class="link" href="#contractors">Find a contractor →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer id="contractors">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Siding<span style="color:var(--green)">Pro</span></div>
+        <p>Trusted siding professionals connecting homeowners with vetted contractors for beautiful, durable exteriors.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="#quote">Request a Quote</a>
+        <a href="#contractors">Find a Contractor</a>
+        <a href="#resources">Order a Color Sample</a>
+        <a href="#resources">Download our Catalog</a>
+      </div>
+      <div>
+        <h4>Homeowner Help</h4>
+        <a href="#resources">Designer Tool</a>
+        <a href="#resources">Color &amp; Design Guidance</a>
+        <a href="#why">Performance &amp; Durability</a>
+        <a href="#why">Why Choose SidingPro</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="#">1-888-SIDING-PRO</a>
+        <a href="#">support@sidingpro.com</a>
+        <a href="#">FAQ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SidingPro. All rights reserved.</span>
+      <span>
+        <a href="#">Privacy Policy</a> · <a href="#">Terms &amp; Conditions</a> · <a href="#">Sitemap</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
